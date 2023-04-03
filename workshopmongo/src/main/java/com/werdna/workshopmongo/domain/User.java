@@ -6,6 +6,8 @@ import java.util.Objects;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.werdna.workshopmongo.dto.UserDTO;
+
 
 
 @Document
@@ -70,6 +72,12 @@ public class User implements Serializable{
 			return false;
 		User other = (User) obj;
 		return Objects.equals(id, other.id);
+	}
+	
+	public User(UserDTO userDTO) {
+		this.id=null;
+		this.email=userDTO.email();
+		this.name=userDTO.name();
 	}
 	
 	
